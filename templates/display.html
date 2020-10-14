@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>{{ title }}</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<!-- MATERIAL DESIGN ICONIC FONT "{{ url_for('static', filename='stylesheets/styles.css') }}"-->
+		<link rel="stylesheet" href="{{ url_for('static', filename='fonts/material-design-iconic-font/css/material-design-iconic-font.min.css') }}">
+		
+		<!-- STYLE CSS -->
+		<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+	</head>
+
+	<body>
+
+		<div class="wrapper">
+			<div class="inner">
+				<form action="" >
+					<table style="width:100%">
+
+						<TR>
+							<TH>ID</TH>
+							<TH>First Name</TH>
+							<TH>Last Name</TH>
+							<TH>E-mail</TH>
+							<TH>Project Name</TH>
+							<TH>Requested Date</TH>
+						</TR>
+						{% for item in data %}
+						<TR>
+							<TD>{{item.id}}</TD>
+							<TD>{{item.first_name}}</TD>
+							<TD><SPAN>{{item.last_name}}</SPAN></TD>
+							<TD><SPAN>{{item.email}}</SPAN></TD>
+							<TD><SPAN>{{item.project_name}}</SPAN></TD>
+							<TD><SPAN>{{item.date_created}}</SPAN></TD>
+						</TR>
+						{% endfor %}
+					</table>
+					<br/><br/>
+					<a href="{{url_for('download_file')}}" target="_blank">Download</a>
+				</form>
+			</div>
+		</div>
+		
+	</body>
+</html>
